@@ -4,6 +4,13 @@
 }
 
 body {
+  background-image: url('https://github.com/MIFNtechnology/siaranMy/raw/main/logo_mifn.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 25% 10%;
+}
+
+body {
   font-family: roboto;
   background: white;
 }
