@@ -19,10 +19,186 @@ body {
       </style>
      </head>
      <body>
-     
-        <h1></h1>
-        <h2></h2>
-        <h3></h3>
-     
+        <h1 align="right" style="color:black; font-size:15px;">
+         <div class="invoice-container">
+         <div class="invoice-header">
+          <a class="invoice-number">
+            INVOICE NO :
+            <input type="text" placeholder="invoice-number" class="invoice-number" size="10"onkeyup="getInput()">
+           </a>
+          </div>
+        </h1>
+  
+   <h2 align="center" style="color:black; font-size:20px;">
+      <a>
+        <strong>
+          COMPANY NAME(xxxxxxxx-x)
+        </strong>
+      </a>
+      <p align="center" style="color:black; font-size:15px;">
+        ADDRESS 1
+        </p>
+        <p align="center" style="color:black; font-size:14px;">
+          ADDRESS 2
+        </p>
+   </h2>
+    
+   <h2 align="center" style="color:black; font-size:13px;">
+      <a>
+      LINK ETC
+      </a>
+      <p>
+      PHONE NUMBER
+      </p>
+   </h2>
+    
+   <h3 align="right" style="color:black; font-size:11px; width:100%;">
+    <div class="invoice-body">
+      <a class="date">
+        <form align="right">
+        DATE :
+        <input type="date" placeholder="date" class="date" onkeyup="getInput()">
+        </form>
+      </a>
+      </div>
+   </h3>
+    
+   <h3 align="left to right" style="color:black; font-size:11px; width:100%;">
+      <fieldset>
+        <legend>
+          CUSTOMER DETAIL :
+        </legend>
+        
+        BILLED TO :
+   <p>
+        <input type="text" placeholder="name" class="BILLED TO" size="20" onkeyup="getInput()">
+   </p>
+       
+       ADDRESS :
+   <p>
+        <input type="text" placeholder="address1" class="ADDRESS" size="50" onkeyup="getInput()">
+   </p>
+   <p>
+        <input type="text" placeholder="address2" class="ADDRESS" size="50" onkeyup="getInput()">
+   </p>
+      
+       TEL NO :
+   <p>
+        <input type="tel" placeholder="phone number" class="TEL NO" size="20" onkeyup="getInput()">
+   </p>
+      </fieldset>
+   </h3>
+    
+    
+   <h3>
+   <table align="center">
+   <thead>
+        <tr class="single-row" align="left to right" style="color:black; font-size:12px;">
+           <th style="height:0.01px; border-color: black; border-width:thick; border-style:solid">
+              <strong>
+                NO
+              </strong>
+           </th>
+           <th style="height:0.01px;border-color: black; border-width:thick; border-style:solid">
+              <strong>
+              DESCRIPTION
+              </strong>
+           </th>
+           <th style="height:0.01px;border-color: black; border-width:thick; border-style:solid">
+              <strong>
+              QTY
+              </strong>
+           </th>
+           <th style="height:0.01px;border-color: black; border-width:thick; border-style:solid">
+              <strong>
+              UNIT  PRICE
+              </strong>
+           </th>
+           <th style="height:0.01px;border-color: black; border-width:thick; border-style:solid">
+              <strong>
+              SUBTOTUL(RM)
+              </strong>
+           </th>
+         </tr>
+      </thead>
+        
+      <tbody id="table-body">
+         <tr class="single-row" align="left to right" style="color:black; font-size:12px;">
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="no" name="no" placeholder="no" maxlength="2" size="1" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="text" id="description" placeholder="product left" name="description" size="78" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">   
+              <input type="tel" id="qty" name="qty" placeholder="qty" maxlength="3" size="1" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="unitprice" placeholder="RM0.00" name="unitprice" size="5" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="subtotal" placeholder="RM0.00" name="subtotal" size="5" onkeyup="getInput()">
+           </td>
+         </tr>
+          
+         <tr class="single-row" align="left to right" style="color:black; font-size:12px;">
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="no" name="no" placeholder="no" maxlength="2" size="1" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="text" id="description" placeholder="product left" name="description" size="78" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">   
+              <input type="tel" id="qty" name="qty" placeholder="qty" maxlength="3" size="1" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="unitprice" placeholder="RM0.00" name="unitprice" size="5" onkeyup="getInput()">
+           </td>
+           <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="subtotal" placeholder="RM0.00" name="subtotal" size="5" onkeyup="getInput()">
+           </td>
+         </tr>
+   
+         <tr class="single-row" align="left to right" style="color:black; font-size:12px;">
+            <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="no" name="no" placeholder="no" maxlength="2" size="1" onkeyup="getInput()">
+            </td>
+            <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="text" id="description" placeholder="product left" name="description" size="78" onkeyup="getInput()">
+            </td>
+            <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">   
+              <input type="tel" id="qty" name="qty" placeholder="qty" maxlength="3" size="1" onkeyup="getInput()">
+            </td>
+            <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="unitprice" placeholder="RM0.00" name="unitprice" size="5" onkeyup="getInput()">
+            </td>
+            <td style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              <input type="tel" id="subtotal" placeholder="RM0.00" name="subtotal" size="5" onkeyup="getInput()">
+            </td>
+          </tr>
+
+          <tr class="single-row" align="left to right" style="color:black; font-size:11.px;">
+            <td>
+            </td>
+            
+            <td>
+            </td>
+            
+            <td>
+            </td>
+            
+            <td align="center," style="height:1px;border-color: transparent; border-width:thick; border-style:solid">
+              TOTAL  :
+            </td>
+            <td id="sum" style="height:1px;border-color: transparent; border-width:thick; border-style:solid" id="sum">
+              RM
+              <input type="tel" placeholder="0.00" name="rm" class="rm" id="rm" size="5" onkeyup="getInput()">
+            </td>
+           </tr>
+       </tbody>
+   </table>
+   </h3>
+     </div>
+     </div>
      </body>
     </html>
