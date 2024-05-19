@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="invoice.css">
+    <script src="items.js"></script>
+    <script src="invoice.js"></script>
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="manifest" href="manifest.json">
+      <script>if ("serviceWorker" in navigator) {
+      // (E1) REGISTER SERVICE WORKER
+      navigator.serviceWorker.register("worker.js", {scope: "/"});
+
+      // (E2) CACHE WEB APP FILES
+      caches.open("invoice").then(cache => cache.addAll([
+        "invoice.css", "invoice.html", "invoice.js", "items.js",
+        "logo.png", "manifest.json", "print.css", "print.html"
+      ]));
+    }</script>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Invoice Generator In HTML Javascript (Serverless Web App) | Invoice-Generator</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="Invoice Generator In HTML Javascript (Serverless Web App)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Making invoice in HTML tag" />
+<meta property="og:description" content="Making invoice in HTML tag" />
+<link rel="canonical" href="https://mifntechnology.github.io/Invoice-Generator/" />
+<meta property="og:url" content="https://mifntechnology.github.io/Invoice-Generator/" />
+<meta property="og:site_name" content="Invoice-Generator" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Invoice Generator In HTML Javascript (Serverless Web App)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Making invoice in HTML tag","headline":"Invoice Generator In HTML Javascript (Serverless Web App)","name":"Invoice-Generator","url":"https://mifntechnology.github.io/Invoice-Generator/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/Invoice-Generator/assets/css/style.css?v=063a9dc59da1776a1e4b8c2328edc618bbb33ff8">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/Invoice-Generator/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    
+    <form onsubmit="return invoice.print()">
+    <!-- (PART A) INVOICE -->
+    <div class="header">Invoice</div>
+    <div id="inRow">
+      <input type="text" id="inNum" placeholder="Invoice Number" required>
+      <input type="date" id="inDate" required>
+    </div>
+    <textarea id="inBill" placeholder="Bill To" required></textarea>
+
+    <!-- (PART B) ITEMS -->
+    <div class="header">Items</div>
+    <div id="itemsList"></div>
+    <div id="itemsAdd" class="irow">
+      <input type="number" class="qty" min="1" placeholder="Qty">
+      <input type="text" class="item" list="itemsData" placeholder="Item Name" onchange="invoice.price(this)">
+      <input type="number" class="price" min="0.00" step="0.01" placeholder="Price Each">
+      <input type="button" class="action" value="+" onclick="invoice.add(true)">
+    </div>
+    <datalist id="itemsData"></datalist>
+
+    <!-- (PART C) TOTALS -->
+    <div class="header">Totals</div>
+    <div id="totals">Grand Total: $0.00</div>
+
+    <!-- (PART D) CONTROLS -->
+    <div id="controls">
+      <label id="loader">
+        <input type="file" accept=".json" onchange="invoice.load()"> Load
+      </label>
+      <input type="button" value="Save" onclick="invoice.save()">
+      <input type="submit" value="Print">
+    </div>
+  </form>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
