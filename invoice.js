@@ -76,7 +76,7 @@ var invoice = {
       if (isNaN(qty) || isNaN(price)) { continue; }
       total += qty * price;
     }
-    invoice.hTotal.innerHTML = "Grand Total: $" + total.toFixed(2);
+    invoice.hTotal.innerHTML = "Grand Total: RM" + total.toFixed(2);
   },
 
   // (PART G) SAVE INVOICE
