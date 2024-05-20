@@ -11,7 +11,7 @@ html {
   margin: 20px 0; font-weight: 700; 
 }
 textarea, input, #loader {
-  font-size: 16px;
+  font-size: 5px;
   padding: 10px; margin: 1px; border: 0;
 }
 input[type="button"], input[type="submit"], #loader {
