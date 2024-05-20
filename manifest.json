@@ -2,7 +2,7 @@
   "short_name": "Invoice Generator",
   "name": "Invoice",
   "icons": [{
-    "src": "logo.png",
+    "background_image_url": "logo.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
