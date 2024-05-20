@@ -8,7 +8,7 @@ html { width: 800px; }
 /* (PART B) COMPANY */
 #company { display: flex; }
 #cologo { width: 300px; }
-#coinfo { flex-grow: 1; text-align: center; }
+#coinfo { flex-grow: 1; text-align: left; }
 
 /* (PART C) INVOICE */
 #inHead {
