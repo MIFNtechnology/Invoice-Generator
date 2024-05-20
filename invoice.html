@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <title>Invoice Generator Demo</title>
+    <title>Invoice Generator </title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="invoice.css">
     <script src="items.js"></script>
@@ -23,35 +22,89 @@
   </head>
   <body><form onsubmit="return invoice.print()">
     <!-- (PART A) INVOICE -->
-    <div class="header">Invoice</div>
-    <div id="inRow">
-      <input type="text" id="inNum" placeholder="Invoice Number" required>
-      <input type="date" id="inDate" required>
+      <div class="header" align="right" style="color:black; font-size:15px;">INVOICE NO :
+      <input type="text" id="inNum" placeholder="Invoice Number" size="10" required></div>
+      
+      <h2 align="center" style="color:black; font-size:20px;">
+      <a>
+        <strong>
+          MIFN TECHNOLOGY ENT.(JM0889321-P)
+        </strong>
+      </a>
+      <p align="center" style="color:black; font-size:15px;">
+        NO.29,JALAN KENANGA 4,TAMAN SRI PENAWAR,
+        </p>
+        <p align="center" style="color:black; font-size:14px;">
+          81930 BANDAR PENAWAR,JOHOR.
+        </p>
+    </h2>
+    
+    <h2 align="center" style="color:black; font-size:13px;">
+      <a>
+      TEL/WASAP : 0137110151 (EJAN)
+      </a>
+    </h2>
+    
+    <div class="date" align="right">
+        DATE :
+    <input type="date" id="inDate" required>
     </div>
-    <textarea id="inBill" placeholder="Bill To" required></textarea>
-
-    <!-- (PART B) ITEMS -->
-    <div class="header">Items</div>
-    <div id="itemsList"></div>
-    <div id="itemsAdd" class="irow">
-      <input type="number" class="qty" min="1" placeholder="Qty">
-      <input type="text" class="item" list="itemsData" placeholder="Item Name" onchange="invoice.price(this)">
-      <input type="number" class="price" min="0.00" step="0.01" placeholder="Price Each">
-      <input type="button" class="action" value="+" onclick="invoice.add(true)">
-    </div>
-    <datalist id="itemsData"></datalist>
-
-    <!-- (PART C) TOTALS -->
-    <div class="header">Totals</div>
-    <div id="totals">Grand Total: $0.00</div>
-
-    <!-- (PART D) CONTROLS -->
-    <div id="controls">
-      <label id="loader">
-        <input type="file" accept=".json" onchange="invoice.load()"> Load
-      </label>
-      <input type="button" value="Save" onclick="invoice.save()">
-      <input type="submit" value="Print">
-    </div>
-  </form></body>
-</html>
+      
+      <fieldset>
+        <legend>
+          CUSTOMER DETAIL :
+        </legend>
+        
+      <div>
+          BILL TO :
+      </div>
+        <input id="inBill" type="text" placeholder="name" class="Bill To" required>
+      
+      <div>
+           ADDRESS :
+      </div>
+         <input id="inAdr" type="text" placeholder="Address1" class="Address" required>
+       
+       <div>
+       </div>
+         <input id="inAdr" type="text" placeholder="Address2" class="Address" required>
+       
+       <div>
+           TEL :
+       </div>
+         <input id="inTel" type="tel" placeholder="Phone Number" class="Tel" required>
+       
+      </fieldset>
+      
+      <!-- (PART B) ITEMS -->
+      <fieldset>
+          <lagend>
+            Items
+          </lagend>
+          <div id="itemsList"></div>
+          <div id="itemsAdd" class="irow">
+            <input type="number" class="qty" min="1" placeholder="Qty">
+              <input type="text" class="item" list="itemsData" placeholder="Item Name" onchange="invoice.price(this)">
+                <input type="number" class="price" min="0.00" step="0.01" placeholder="Price Each">
+                  <input type="button" class="action" value="+" onclick="invoice.add(true)">
+           </div>
+         <datalist id="itemsData"></datalist>
+      </fieldset>
+      
+      <!-- (PART C) TOTALS -->
+        <div class="header">TOTALS</div>
+        <div id="totals">Grand Total: RM0.00</div>
+        
+        <!-- (PART D) CONTROLS -->
+          <div id="controls">
+            <label id="loader">
+              <input type="file" accept=".json" onchange="invoice.load()"> Load
+              </label>
+              <input type="button" value="Save" onclick="invoice.save()">
+              <input type="submit" value="Print">
+           </div>
+        </form>
+    </body>
+  </html>
+        
+      
