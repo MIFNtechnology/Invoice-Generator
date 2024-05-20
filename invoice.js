@@ -3,6 +3,8 @@ var invoice = {
   hNum : null,   // html invoice number
   hDate : null,  // html invoice date
   hBill : null,  // html bill to
+  hAdr : null,  // html address
+  hTel : null,  // html tel
   hItems : null, // html items list
   hAdd : null,   // html add item row
   hData : null,  // html items datalist
@@ -15,6 +17,8 @@ var invoice = {
     invoice.hNum = document.getElementById("inNum");
     invoice.hDate = document.getElementById("inDate");
     invoice.hBill = document.getElementById("inBill");
+    invoice.hAdr = document.getElementById("inAdr");
+    invoice.hTel = document.getElementById("inTel");
     invoice.hItems = document.getElementById("itemsList");
     invoice.hAdd = document.getElementById("itemsAdd");
     invoice.hData = document.getElementById("itemsData");
@@ -76,7 +80,7 @@ var invoice = {
       if (isNaN(qty) || isNaN(price)) { continue; }
       total += qty * price;
     }
-    invoice.hTotal.innerHTML = "Grand Total: $" + total.toFixed(2);
+    invoice.hTotal.innerHTML = "Grand Total: RM" + total.toFixed(2);
   },
 
   // (PART G) SAVE INVOICE
@@ -86,6 +90,8 @@ var invoice = {
     data.num = invoice.hNum.value;
     data.date = invoice.hDate.value;
     data.bill = invoice.hBill.value;
+    data.adr = invoice.hAdr.value;
+    data.tel = invoice.hTel.value;
     data.items = [];
     for (let row of invoice.hItems.querySelectorAll(".irow")) {
       let item = [];
@@ -119,10 +125,14 @@ var invoice = {
         invoice.hNum.value = data.num;
         invoice.hDate.value = data.date;
         invoice.hBill.value = data.bill;
+        invoice.hAdr.value = data.adr;
+        invoice.hTel.value = data.tel;
         invoice.hItems.innerHTML = "";
         for (let row of data.items) {
-          invoice.hAdd.querySelector(".qty").value = row[0];
-          invoice.hAdd.querySelector(".item").value = row[1];
+          invoice.hAdd.querySelector(".item").value =
+           row[0];
+           invoice.hAdd.querySelector(".qty").value =
+           row[1];
           invoice.hAdd.querySelector(".price").value = row[2];
           invoice.add();
         }
@@ -156,6 +166,8 @@ var invoice = {
     page.onload = () => {
       // (I2-1) INVOICE
       page.document.getElementById("billto").innerHTML = "<strong>BILL TO:</strong><br>" + invoice.hBill.value.replace(/\n/g, "<br>");
+      page.document.getElementById("address").innerHTML = "<strong>ADDRESS :</strong><br>" + invoice.hAdr.value.replace(/\n/g, "<br>");
+      page.document.getElementById("tel").innerHTML = "<strong>TEL :</strong><br>" + invoice.hTel.value.replace(/\n/g, "<br>");
       page.document.getElementById("inNum").innerHTML = "<strong>INVOICE #: </strong>" + invoice.hNum.value;
       page.document.getElementById("inDate").innerHTML = "<strong>DATE: </strong>" + invoice.hDate.value;
 

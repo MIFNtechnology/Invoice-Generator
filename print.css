@@ -3,20 +3,22 @@
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
-html { width: 600px; }
+html { width: 800px; }
 
 /* (PART B) COMPANY */
 #company { display: flex; }
 #cologo { width: 100px; }
-#coinfo { flex-grow: 1; text-align: right; }
+#coinfo { flex-grow: 1; text-align: center; }
 
 /* (PART C) INVOICE */
 #inHead {
   font-weight: 700; font-size: 22px; color: #bd0f0f;
   margin: 20px 0;
 }
-#inRow { display: flex; }
 #billto { flex-grow: 1; }
+#address { flex-grow: 1; }
+#tel { flex-grow: 1; }
+
 
 /* (PART D) ITEMS */
 #items { margin: 20px 0; }

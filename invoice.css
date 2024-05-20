@@ -4,15 +4,11 @@
   box-sizing: border-box;
 }
 html {
-  padding: 0; margin: 0 auto; width: 600px;
+  padding: 0; margin: 0 auto; width: 800px;
   background: #f2f2f2;
 }
 .header {
   margin: 20px 0; font-weight: 700; 
-}
-textarea, input, #loader {
-  font-size: 16px;
-  padding: 10px; margin: 1px; border: 0;
 }
 input[type="button"], input[type="submit"], #loader {
   color: #fff; background: #3154d5;
@@ -22,7 +18,9 @@ input[type="button"], input[type="submit"], #loader {
 /* (PART B) INVOICE */
 #inRow { display: flex; }
 #inNum { flex-grow: 1; }
-#inBill { width: 100%; min-height: 100px; }
+#inBill { width: 20%; min-height: 20px; }
+#inAdr { width: 50%; min-height: 20px; }
+#inTel { width: 20%; min-height: 20px; }
 
 /* (PART C) ITEMS */
 .irow { display: flex; padding: 3px; }

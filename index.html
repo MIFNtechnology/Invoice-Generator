@@ -7,9 +7,11 @@
       <link rel="stylesheet" href="invoice.css">
     <script src="items.js"></script>
     <script src="invoice.js"></script>
+    
+    <!-- (PART E) PROGRESSIVE WEB APP -->
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="manifest" href="manifest.json">
-      <script>if ("serviceWorker" in navigator) {
+    <script>if ("serviceWorker" in navigator) {
       // (E1) REGISTER SERVICE WORKER
       navigator.serviceWorker.register("worker.js", {scope: "/"});
 
@@ -19,7 +21,7 @@
         "logo.png", "manifest.json", "print.css", "print.html"
       ]));
     }</script>
-
+    
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Invoice Generator In HTML Javascript (Serverless Web App) | Invoice-Generator</title>
 <meta name="generator" content="Jekyll v3.9.5" />
@@ -52,40 +54,91 @@
   </head>
   <body>
     
-    <form onsubmit="return invoice.print()">
+    <body><form onsubmit="return invoice.print()">
     <!-- (PART A) INVOICE -->
-    <div class="header">Invoice</div>
-    <div id="inRow">
-      <input type="text" id="inNum" placeholder="Invoice Number" required>
-      <input type="date" id="inDate" required>
+      <div class="header" align="right" style="color:black; font-size:15px;">INVOICE NO :
+      <input type="text" id="inNum" placeholder="Invoice Number" size="10" required></div>
+      
+      <h2 align="center" style="color:black; font-size:20px;">
+      <a>
+        <strong>
+          MIFN TECHNOLOGY Sdn. Bhd.
+        </strong>
+      </a>
+      <p align="center" style="color:black; font-size:15px;">
+        NO.00,JALAN JALAN 4,TAMAN TAMAN,
+        </p>
+        <p align="center" style="color:black; font-size:14px;">
+          POSKOD BANDAR BANDAR,JOHOR.
+        </p>
+    </h2>
+    
+    <h2 align="center" style="color:black; font-size:13px;">
+      <a>
+      TEL/WASAP : 012345678910 (KAITOU E)
+      </a>
+    </h2>
+    
+    <div class="date" align="right">
+        DATE :
+    <input type="date" id="inDate" required>
     </div>
-    <textarea id="inBill" placeholder="Bill To" required></textarea>
-
-    <!-- (PART B) ITEMS -->
-    <div class="header">Items</div>
-    <div id="itemsList"></div>
-    <div id="itemsAdd" class="irow">
-      <input type="number" class="qty" min="1" placeholder="Qty">
-      <input type="text" class="item" list="itemsData" placeholder="Item Name" onchange="invoice.price(this)">
-      <input type="number" class="price" min="0.00" step="0.01" placeholder="Price Each">
-      <input type="button" class="action" value="+" onclick="invoice.add(true)">
-    </div>
-    <datalist id="itemsData"></datalist>
-
-    <!-- (PART C) TOTALS -->
-    <div class="header">Totals</div>
-    <div id="totals">Grand Total: RM0.00</div>
-
-    <!-- (PART D) CONTROLS -->
-    <div id="controls">
-      <label id="loader">
-        <input type="file" accept=".json" onchange="invoice.load()"> Load
-      </label>
-      <input type="button" value="Save" onclick="invoice.save()">
-      <input type="submit" value="Print">
-    </div>
-  </form>
- 
+      
+      <fieldset>
+        <legend>
+          CLIENT DETAIL :
+        </legend>
+        
+      <div>
+          BILL TO :
+      </div>
+        <input id="inBill" type="text" placeholder="name" class="Bill To" required>
+      
+      <div>
+           ADDRESS :
+      </div>
+         <input id="inAdr" type="text" placeholder="Address1" class="Address" required>
+       
+       <div>
+       </div>
+         <input id="inAdr" type="text" placeholder="Address2" class="Address" required>
+       
+       <div>
+           TEL :
+       </div>
+         <input id="inTel" type="tel" placeholder="Phone Number" class="Tel" required>
+       
+      </fieldset>
+      
+      <!-- (PART B) ITEMS -->
+      <fieldset>
+          <lagend>
+            Items
+          </lagend>
+          <div id="itemsList"></div>
+          <div id="itemsAdd" class="irow">
+            <input type="number" class="qty" min="1" placeholder="Qty">
+              <input type="text" class="item" list="itemsData" placeholder="Item Name" onchange="invoice.price(this)">
+                <input type="number" class="price" min="0.00" step="0.01" placeholder="Price Each">
+                  <input type="button" class="action" value="+" onclick="invoice.add(true)">
+           </div>
+         <datalist id="itemsData"></datalist>
+      </fieldset>
+      
+      <!-- (PART C) TOTALS -->
+        <div class="header">TOTALS</div>
+        <div id="totals">Grand Total: RM0.00</div>
+        
+        <!-- (PART D) CONTROLS -->
+          <div id="controls">
+            <label id="loader">
+              <input type="file" accept=".json" onchange="invoice.load()"> Load
+              </label>
+              <input type="button" value="Save" onclick="invoice.save()">
+              <input type="submit" value="Print">
+           </div>
+        </form>
+        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
   </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Invoice Generator Demo</title>
+    <title>Invoice Generator MIFN</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="print.css">
   </head>
@@ -10,23 +10,34 @@
     <div id="company">
       <img id="cologo" src="logo.png">
       <div id="coinfo">
-        Company Name<br>
-        Address<br>
-        http://your-site.com<br>
-        Email: jon@doe.com<br>
+        <strong>MIFN Technology Sdn Bhd</strong><br>
+        <strong>No.1,Jalan 2,Taman 3,</strong><br>
+        <strong>123400 Negeri 7.</strong><br>
+        http://mifn.technology.com<br>
+        Email: mifn.technology@mail.com<br>
         Tel: 12345678
       </div>
     </div>
 
     <!-- (PART B) INVOICE -->
-    <div id="inHead">SALES INVOICE</div>
-    <div id="inRow">
-      <div id="billto"></div>
-      <div id="inData">
-        <div id="inNum"></div>
-        <div id="inDate"></div>
-      </div>
-    </div>
+      
+            <div id="inHead">SALES INVOICE</div>
+
+      <fieldset>
+       <legend align="center" style="color:black; font-size:13px;">
+          Client detail
+        </legend>
+        
+          <div id="inRow">
+          <div id="billto"></div>
+          <div id="address"></div>
+          <div id="tel"></div>
+          <div id="inData">
+          <div id="inNum" align="right"></div>
+          <div id="inDate" align="right"></div>
+        </div>
+       </div>
+      </fieldset>
 
     <!-- (PART C) ITEMS -->
     <div id="items">
