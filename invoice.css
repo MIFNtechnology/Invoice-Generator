@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  padding: 0; margin: 0 auto; width: 800px;
+  padding: 0; margin: 0 auto; width: 600px;
   background: #f2f2f2;
 }
 .header {

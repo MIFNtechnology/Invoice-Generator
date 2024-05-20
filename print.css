@@ -3,16 +3,16 @@
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
 }
-html { width: 800px; }
+html { width: 600px; }
 
 /* (PART B) COMPANY */
 #company { display: flex; }
 #cologo { width: 100px; }
-#coinfo { flex-grow: 1; text-align: center; }
+#coinfo { flex-grow: 1; text-align: right; }
 
 /* (PART C) INVOICE */
 #inHead {
-  font-weight: 700; font-size: 22px; color: #000000;
+  font-weight: 700; font-size: 22px; color: #bd0f0f;
   margin: 20px 0;
 }
 #inRow { display: flex; }
