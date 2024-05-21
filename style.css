@@ -1,0 +1,9 @@
+html {
+  height: 500% witdh: 500%;
+}
+body {
+  background-image: url('https://github.com/MIFNtechnology/siaranMy/raw/main/logo_mifn.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
