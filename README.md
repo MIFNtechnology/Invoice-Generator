@@ -1,19 +1,36 @@
-# Invoice Generator In HTML Javascript (Serverless Web App)
+# PENJANA INVOIS(INVOICE GENERATOR)
 
-* Once upon a time, a student is working on an online invoice generator when the server went down. She then began to lament about how web apps are useless without a server. Well, that is quite true. But the idea of Web 3.0 is decentralization, and “serverless” is one of those concepts.
+##  Penjana Invois Dalam HTML Javascript (Serverless Web App)
 
-* In this tutorial, let Master Coffee walk you through an example of a serverless invoice generator. Yes, no server-side scripts and no database – Let’s go!
+* Penjana Invois ini berkonsepkan HTML javascript yang tidak memerlukan web server.
+* Invois ini menggukan sistem kakulator pengiraan harga secara automatik.
+* Biar Kaitou_E membimbing anda melalui contoh penjana invois tanpa web server. Ya, tiada skrip sebelah server dan tiada pangkalan data – Jom! 
+* Saya telah mengeluarkan ini di bawah lesen MIT, jangan ragu untuk menggunakannya dalam projek anda sendiri - Peribadi atau komersial. Walau bagaimanapun, beberapa bentuk kredit adalah bagus.🥰
 
-* I have released this under the MIT license, feel free to use it in your own project – Personal or commercial. Some form of credits will be nice though. 
+### Contoh gambaran setelah siap untuk digunakan.
 
-## USAGE
+<img src="https://github.com/MIFNtechnology/Invoice-Generator/raw/main/contoh1.jpg" alt="cth1" width="120" />(invoice.html)
 
-1. INVOICE HTML PAGE
+<img src="https://github.com/MIFNtechnology/Invoice-Generator/raw/main/contoh2.jpg" alt="cth2" width="120" />(print.html)
 
-* Let us start with the create/edit invoice page. This should be very straightforward, just a “slightly long-winded HTML form”.
-* (Invoice html)
+* Boleh lihat contoh hasil di link url ini
+* Klik👉 [invois mifn](<https://mifntechnology.github.io/Invoice-Generator/>)
 
-```scriptHtml
+## Cara guna
+
+### 1. Halaman Html Invois 
+
+(invoice.html)
+
+* Mari kita mulakan dengan halaman buat/edit invois.
+* Ini sepatutnya sangat mudah, hanya "bentuk HTML yang panjang lebar". 
+* Nombor invois, tarikh dan bil kepada. 
+* Item invois. 
+* Jumlah… termasuk Jumlah Besar di sini. 
+* Tambahkan pengiraan cukai anda sendiri dan caj tambahan di sini. 
+* Kawalan – Simpan, muatkan, cetak.
+
+```script
 <form onsubmit="return invoice.print()">
   <!-- (PART A) INVOICE -->
   <div class="header">Invoice</div>
@@ -49,17 +66,15 @@
 </form>
 ```
 
-* The invoice number, date, and bill to.
-* Invoice items.
-* Totals… Master Coffee is lazy and only included the * Grand Total here. Add your own tax calculations and additional charges here.
-* Controls – Save, load, print.
+### 2. Item Javascript & Mulakan Senarai Barangan Dan Harga.
 
-2. JAVASCRIPT ITEMS & INITIALIZE
+(Item.js)
 
-* ITEMS LIST
-* (Item js)
+* Oleh kerana tiada pangkalan data, satu-satunya tempat untuk menyimpan produk adalah dalam objek Javascript. Ini hanya digunakan sebagai dalam "autocadangan" .
+* Ini memudah kita dengan hanya klik nama barangan pada sistem.
+* Contoh; "Cappuccino" adalah nama barang. " : 2.22, " adalah harga pada barang tersebut.
 
-```scriptJs
+```javaScript
 var items = {
   "Americano" : 1.11,
   "Cappuccino" : 2.22,
@@ -69,14 +84,14 @@ var items = {
 };
 ```
 
-* Since there is no database, the only place to keep the products is in a Javascript object.
-* This is only used as “autosuggest” in <datalist id="itemsData">.
+### 3. Memulakan app
 
-3. APP INITIALIZE
+(invoice.js)
 
-* (invoice js)
+* var invois mengandungi semua mekanik. invoice.init() akan dijalankan pada beban tetingkap. 
+* Cukup banyak hanya mendapat sekumpulan elemen HTML, dan mengisi dengan item dibawah.
 
-```scriptJs
+```javaScript
 var invoice = {
   // (PART A) PROPERTIES
   hNum : null,   // html invoice number
@@ -114,14 +129,17 @@ var invoice = {
 window.addEventListener("load", invoice.init);
 ```
 
-* var invoice contains all of the mechanics.
-* invoice.init() will run on window load. Pretty much just getting a bunch of HTML elements, and populating <datalist id="itemsData"> with the items above.
+### 4. Javascript Tambah & Keluarkan Item
 
-3. JAVASCRIPT ADD & REMOVE ITEMS
+(invoice.js)
 
-* (invoice js)
+* (C) price() Seperti di bawah, apabila pengguna memilih item yang "didaftarkan" dalam item var, ini juga akan menetapkan harga secara automatik.
+* (D) add() Untuk menambah item baharu pada invois – Kami mengklon , buat beberapa perubahan pada medan dan masukkannya ke dalam . 
+* (E) remove() Untuk mengalih keluar item daripada invois – Mudah padam keseluruhan baris. 
+* (F) total() Setiap kali pengguna menukar kuantiti atau harga item, kira semula jumlah. 
+* Sekali lagi, tambahkan pengiraan cukai anda dan caj tambahan di sini.
 
-```scriptJs
+```javaScript
 // (PART C) SET PRICE EACH (WHEN CHOOSING ITEM)
 price : item => { if (items[item.value]) {
   item.nextElementSibling.value = items[item.value];
@@ -173,16 +191,17 @@ total : () => {
 },
 ```
 
-* (D) add() To add a new item to the invoice – We clone <div id="itemsAdd">, make some changes to the fields, and insert it into <div id="itemsList">.
-* (E) remove() To remove an item from the invoice – Simple delete the entire row.
-* (C) price() As above, when the user picks an item that is “registered” in var items, this will also automatically set the price.
-* (F) total() Every time the user changes an item quantity or price, recalculate the totals. Once again, add your tax calculations and additional charges here.
+### 5. Simpan invois
 
-4. SAVE INVOICE
+(invoice.js)
 
-* (invoice js)
+* Kumpulkan semua medan ke dalam data var. 
+* Buat objek Blob() baharu, masukkan data dalam format yang dikodkan JSON. 
+* Muat turun paksa. 
+* Ambil perhatian, tiada semakan borang di sini.
+* Kami membenarkan pengguna menyimpan draf invois.
 
-```scriptJs
+```javaScript
 // (PART G) SAVE INVOICE
 save : () => {
   // (G1) GET INVOICE DATA
@@ -211,17 +230,14 @@ save : () => {
 },
 ```
 
-* Collect all the fields into var data.
-* Create a new Blob() object, put in the data in JSON encoded format.
-* Force download.
+### 6. Memuatkan Invois
 
-Take note, there’s no form checking here. We allow users to save draft invoices.
+(invoice.js)
 
-5. LOAD INVOICE
+* Pengguna memilih fail JSON yang dijana oleh fungsi save() di bawah. 
+* Secara literal – Baca fail JSON, nyahkod, dan isikan borang HTML.
 
-* (invoice js)
-
-```scriptJs
+```javaScript
 // (PART H) LOAD INVOICE
 load : () => {
   // (H1) FILE READER
@@ -260,15 +276,15 @@ load : () => {
 },
 ```
 
-* The user picks a JSON file generated by the above save() function.
-* Literally – Read the JSON file, decode, and populate the HTML form.
+### 7. Cetak Invois
 
-6. PRINT INVOICE
+(print.html)
 
-* PRINT INVOICE HTML PAGE
+* Cetak halaman html invois.
+* Nah, halaman ini hanyalah templat. 
+* Jangan ragu untuk menukar reka bentuk, reka letak dan CSS.
 
-
-```scriptHtml
+```script
 <!-- (PART A) YOUR COMPANY -->
 <div id="company">
   <img id="cologo" src="logo.png">
@@ -302,13 +318,15 @@ load : () => {
 <div id="totals"></div>
 ```
 
-Well, this page is just a template. Feel free to change the design, layout, and CSS.
+### 8. Cetak Invois JavaScript
 
-* PRINT INVOICE JAVASCRIPT
+(invoice.js)
 
-* (invoice.js)
+* Bahagian akhir Javascript. 
+* Sangat mudah, pindahkan data borang invois ke halaman cetakan. 
+* P.S. Ambil perhatian bahawa fungsi ini dicetuskan oleh butang serah - Semakan borang akan dicetuskan, kami tidak membenarkan pengguna menjana "invois tidak lengkap".
 
-```scriptJs
+```javaScript
 // (PART I) PRINT INVOICE
 print : () => {
   // (I1) CHECK FOR ITEMS
@@ -343,14 +361,11 @@ print : () => {
 }
 ```
 
-The final part of the Javascript. Very simple, transfer the invoice form data onto the print page.
+### 9. Apl Web Progresif
 
-P.S. Take note that this function is fired by a submit button – Form checking will be triggered, we don’t allow users to generate “incomplete invoices”.
+(manifest.json)
 
-7. PROGRESSIVE WEB APP
-
-* MANIFEST FILE
-* (manifest.json)
+* Apa itu fail manifest?  - Mengandungi maklumat tentang nama apl, ikon, URL mula, warna, tetapan, dsb.
 
 ```scriptJson
 {
@@ -369,12 +384,15 @@ P.S. Take note that this function is fired by a submit button – Form checking 
 }
 ```
 
-The manifest file is what it is – Contains information about the app name, icon, start URL, colors, settings, etc…
+### 10. Kepala html(html header)
 
-* HTML HEADER
-* (invoice.html)
+(invoice.html)
 
-```scriptHtml
+* Seterusnya, kami memasukkan coretan kecil di bahagian kepala halaman invois untuk:Tentukan fail manifes. 
+* Daftarkan pekerja perkhidmatan. 
+* Cipta cache untuk menyimpan semua fail apl – Ini bukan cache penyemak imbas, tetapi cache apl berterusan yang berbeza.
+
+```script
 <!-- (PART E) PROGRESSIVE WEB APP -->
 <link rel="icon" href="logo.png" type="image/png">
 <link rel="manifest" href="manifest.json">
@@ -390,31 +408,13 @@ The manifest file is what it is – Contains information about the app name, ico
 }</script>
 ```
 
-Next, we insert a small snippet in the head section of the invoice page to:
+### 11. Had Akhir
 
-Specify the manifest file.
-Register a service worker.
-Create a cache to store all the app files – This is not the browser cache, but a different persistent app cache.
+Itu sahaja untuk tutorial dan perkongsian ini. Sebelum kita tamat, saya akan melakukan sorotan pantas tentang batasan (dan kemungkinan masalah) penjana invois tanpa pelayan ini:
 
-* SERVICE WORKER
-* (worker.js)
-
-```scriptJs
-// (PART A) LOAD FILE FROM CACHE, FALLBACK TO NETWORK IF NOT FOUND
-self.addEventListener("fetch", e => e.respondWith(
-  caches.match(e.request).then(r => r || fetch(e.request))
-));
-Once registered, this service worker will run in the background. What it does – Load the requested file from the cache if it is found, else fallback to load from the server. That is, effectively turning this into an offline web app.
-```
-
-8. THE END – LIMITATIONS
-
-That’s all for this tutorial and sharing. Before we end, I will do a quick highlight of the limitations (and possible problems) of this serverless invoice generator:
-
-* There is no database, all invoices are saved in JSON files on the user’s device.
-* If users share and copy the invoice files, you may end up with multiple different versions.
-* You can create a shared folder within your network to keep the invoice files, but isn’t that a “server”? Might as well implement a database.
-* There is no security and accountability. There is no login, anyone can create an invoice, and there is no way to trace who created/updated the invoices.
-* Yep, this serverless app only works great in small shops and companies. If you want an “actual invoice system”, there’s no running away from server-side scripts and databases.
-
-
+* Tiada pangkalan data, semua invois disimpan dalam fail JSON pada peranti pengguna. 
+* Jika pengguna berkongsi dan menyalin fail invois, anda mungkin mendapat berbilang versi berbeza.
+* Anda boleh membuat folder kongsi dalam rangkaian anda untuk menyimpan fail invois, tetapi bukankah itu "server"? 
+* Mungkin juga melaksanakan pangkalan data. Tiada keselamatan dan akauntabiliti. 
+* Tiada log masuk, sesiapa sahaja boleh membuat invois, dan tiada cara untuk mengesan siapa yang mencipta/mengemas kini invois. 
+* Ya, apl tanpa pelayan ini hanya berfungsi hebat di kedai dan syarikat kecil. Jika anda mahukan "sistem invois sebenar", anda tidak boleh lari daripada skrip dan pangkalan data sebelah server.
