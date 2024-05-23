@@ -16,7 +16,7 @@ html { width: 800px; }
   margin: 20px 0;
 }
 #billto { flex-grow: 1; }
-#address { flex-grow: 1; }
+#address { flex-grow: 2; }
 #tel { flex-grow: 1; }
 
 
