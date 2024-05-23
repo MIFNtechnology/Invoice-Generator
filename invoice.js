@@ -4,6 +4,7 @@ var invoice = {
   hDate : null,  // html invoice date
   hBill : null,  // html bill to
   hAdr : null,  // html address
+  hAdr : null,  // html address
   hTel : null,  // html tel
   hItems : null, // html items list
   hAdd : null,   // html add item row
@@ -17,6 +18,7 @@ var invoice = {
     invoice.hNum = document.getElementById("inNum");
     invoice.hDate = document.getElementById("inDate");
     invoice.hBill = document.getElementById("inBill");
+    invoice.hAdr = document.getElementById("inAdr");
     invoice.hAdr = document.getElementById("inAdr");
     invoice.hTel = document.getElementById("inTel");
     invoice.hItems = document.getElementById("itemsList");
@@ -91,6 +93,7 @@ var invoice = {
     data.date = invoice.hDate.value;
     data.bill = invoice.hBill.value;
     data.adr = invoice.hAdr.value;
+    data.adr = invoice.hAdr.value;
     data.tel = invoice.hTel.value;
     data.items = [];
     for (let row of invoice.hItems.querySelectorAll(".irow")) {
@@ -125,6 +128,7 @@ var invoice = {
         invoice.hNum.value = data.num;
         invoice.hDate.value = data.date;
         invoice.hBill.value = data.bill;
+        invoice.hAdr.value = data.adr;
         invoice.hAdr.value = data.adr;
         invoice.hTel.value = data.tel;
         invoice.hItems.innerHTML = "";
@@ -167,6 +171,7 @@ var invoice = {
       // (I2-1) INVOICE
       page.document.getElementById("billto").innerHTML = "<strong>BILL TO:</strong><br>" + invoice.hBill.value.replace(/\n/g, "<br>");
       page.document.getElementById("address").innerHTML = "<strong>ADDRESS :</strong><br>" + invoice.hAdr.value.replace(/\n/g, "<br>");
+      page.document.getElementById("address").innerHTML = "<br>" + invoice.hAdr.value.replace(/\n/g, "<br>");
       page.document.getElementById("tel").innerHTML = "<strong>TEL :</strong><br>" + invoice.hTel.value.replace(/\n/g, "<br>");
       page.document.getElementById("inNum").innerHTML = "<strong>INVOICE #: </strong>" + invoice.hNum.value;
       page.document.getElementById("inDate").innerHTML = "<strong>DATE: </strong>" + invoice.hDate.value;
