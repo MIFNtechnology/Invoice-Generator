@@ -10,6 +10,10 @@ html {
 .header {
   margin: 20px 0; font-weight: 700; 
 }
+textarea, input, #loader {
+  font-size: 16px;
+  padding: 10px; margin: 1px; border: 0;
+}
 input[type="button"], input[type="submit"], #loader {
   color: #fff; background: #3154d5;
   cursor: pointer;
