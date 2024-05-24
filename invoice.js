@@ -165,10 +165,10 @@ var invoice = {
     let page = window.open("print.html");
     page.onload = () => {
       // (I2-1) INVOICE
+      page.document.getElementById("inNum").innerHTML = "<strong>INVOICE #: </strong>" + invoice.hNum.value;
       page.document.getElementById("billto").innerHTML = "<strong>BILL TO:</strong><br>" + invoice.hBill.value.replace(/\n/g, "<br>");
       page.document.getElementById("address").innerHTML = "<strong>ADDRESS :</strong><br>" + invoice.hAdr.value.replace(/\n/g, "<br>");
       page.document.getElementById("tel").innerHTML = "<strong>TEL :</strong><br>" + invoice.hTel.value.replace(/\n/g, "<br>");
-      page.document.getElementById("inNum").innerHTML = "<strong>INVOICE #: </strong>" + invoice.hNum.value;
       page.document.getElementById("inDate").innerHTML = "<strong>DATE: </strong>" + invoice.hDate.value;
 
       // (I2-2) ITEMS
