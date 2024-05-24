@@ -21,6 +21,7 @@ input[type="button"], input[type="submit"], #loader {
 #inBill { width: 20%; min-height: 20px; }
 #inAdr { width: 50%; min-height: 20px; }
 #inTel { width: 20%; min-height: 20px; }
+#inDate { flex-grow: 1; }
 
 /* (PART C) ITEMS */
 .irow { display: flex; padding: 3px; }
